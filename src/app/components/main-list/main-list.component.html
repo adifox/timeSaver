@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <form [formGroup]="mainList" (ngSubmit)="onSearch()">
+      <div class="input-group mb-3 mt-3">
+        <select 
+          class="custom-select" 
+          id="inputGroupSelect04"
+          formControlName="place">
+          <option value="Madrid1">Madrid1</option>
+          <option value="Madrid2">Madrid2</option>
+          <option value="Madrid3">Madrid3</option>
+          <option value="Madrid4">Madrid4</option>
+          <option value="Madrid5">Madrid5</option>
+          <option value="Madrid6">Madrid6</option>
+          <option value="Madrid7">Madrid7</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="onGetAppointments()">Button</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row" *ngFor="let appointment of appointments">
+    <p>{{appointment.date}}</p>
+    <p>{{appointment.time}}</p>
+    <p>{{appointment.place}}</p>
+  </div>
+</div>
+<!-- <app-appointment-item
+*ngFor="let appointment of appointments"
+[appointment]="appointment"
+></app-appointment-item> -->
+

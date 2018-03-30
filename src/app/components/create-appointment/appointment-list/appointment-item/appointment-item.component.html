@@ -1,0 +1,26 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h5>Tu Cita</h5>
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Hora:
+        <span class="badge badge-info bigger">{{appointment.time}}</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Fecha:
+        <span class="badge badge-info bigger">{{appointment.date | date: 'dd/MM/yyyy'}}</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Lugar:
+        <span class="badge badge-info bigger">{{appointment.place}}</span>
+      </li>
+    </ul>
+    <hr>
+    <button class="btn btn-info">Ver Lista Completa</button>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
