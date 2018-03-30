@@ -25,23 +25,14 @@ export class MainListComponent implements OnInit {
   onGetAppointments() {
     this.http.get('https://enlista-303d4.firebaseio.com/appointments.json')
       .subscribe((response: Response) => {
-        const appo = response.json();
-        console.log('Your appointments are serverd:', appo.date);
-        // this.appointments = response.json();
-        // this.appointments = this.sortAppoinments(response.json(), 'Madrid1');
+        this.appointments = this.sortAppoinments(response.json(), this.mainList.value.place);
       })
-      
-    // this.appointments = this.appointmentService.getAppointmentsByPlace(this.mainList.value.place);
-    // console.log('this.appointments: ', this.appointments);
   }
 
   private sortAppoinments(appointments, searchTerm) {
-    console.log('the appointments from server:', appointments);
-    let places = this.appointments.filter((appointment) => {
-      console.log('in the sortFunction appointment:', appointment);
+    let places = appointments.filter((appointment) => {
       return appointment.place === searchTerm ? appointment : null;
     });
-    console.log('the result:', places);
     return places;
   }
 

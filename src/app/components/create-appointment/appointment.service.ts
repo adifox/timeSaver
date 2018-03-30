@@ -23,6 +23,7 @@ export class AppointmentService {
 
   addAppointment(appointment: Appointment) {
     this.appointments.push(appointment);
+    console.log('the appointments array:', this.appointments);
     this.http.put('https://enlista-303d4.firebaseio.com/appointments.json', this.appointments.slice())
       .subscribe((response: Response) => {
         console.log('the server response at store appoinment:', response);
